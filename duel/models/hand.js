@@ -34,7 +34,11 @@ class hand {
 			translate(50,50);
 		}
 		for (var i = 0; i < this.cardsInHand.length; i++) {
-				this.cardsInHand[i].mouseHit = collidePointRect(mouseX,mouseY,xi,yi,55, 80, 3);
+				if (this.cardsInHand[i].mouseHit == true) {
+					this.cardsInHand[i].mouseHit = collidePointRect(mouseX,mouseY,xi-27.5,yi-80,110, 160, 3);
+				} else {
+					this.cardsInHand[i].mouseHit = collidePointRect(mouseX,mouseY,xi,yi,55, 80, 3);
+				}
 				this.cardsInHand[i].draw();
 				translate(step,0);
 				xi += step;

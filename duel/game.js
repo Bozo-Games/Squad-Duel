@@ -10,7 +10,6 @@ function setup() {
 }
 
 function draw() {
-	//rectMode(CENTER); // comment out to unexplode
 	background(180);  
 	hand1.draw();
 	hand2.draw();

@@ -35,6 +35,7 @@ class card {
 			//fill('#00ff00')
 			if (this.owner == 0 ) {
 				translate(-27.5,-80);
+				//this.mouseClicked(this.changeGray);
 			}
 			else {
 				translate(-27.5, 0);
@@ -42,7 +43,7 @@ class card {
 			scale(2,2);
 		}
 		rect(0, 0, 55, 80, 3); // draw card
-		translate(0,0);
+		translate(4,16);
 		text(statHealth, 0, 0); 
 		translate(0,14);
 		text(statArmor,0,0);
