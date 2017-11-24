@@ -1,5 +1,5 @@
-let hand1 = new hand({owner:'player'});
-let hand2 = new hand();
+let hand1 = new hand();
+let hand2 = new hand({owner:1});
 var mouseHit = false;
 
 
@@ -10,14 +10,8 @@ function setup() {
 }
 
 function draw() {
-	rectMode(CENTER); // comment out to unexplode
+	//rectMode(CENTER); // comment out to unexplode
 	background(180);  
 	hand1.draw();
 	hand2.draw();
-}
-
-function keyReleased() {
-	if( keyCode == 32) {
-		attack.flat++;
-	}
 }

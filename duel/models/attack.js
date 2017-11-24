@@ -9,4 +9,14 @@ class attack {
 		this.power = json.power === undefined ? 0 : json.power; 
 	}
 
+	toJSON(){
+		return {
+			flat:this.flat,
+			crushing:this.crushing,
+			piercing:this.piercing,
+			defense:this.defense,
+			speed:this.speed,
+			power:this.power
+		};
+	}
 }

@@ -1,13 +1,26 @@
 class card {
 	constructor(json) {
 		json = json === undefined ? {} : json;
+		this.owner = json.owner === undefined ? 0 : json.owner; // player 0, opponent 1
 		this.health = json.health === undefined ? 0 : json.health; 
 		this.armor = json.armor === undefined ? 0 : json.armor; 
 		this.speed = json.speed === undefined ? 0 : json.speed; 
 		this.power = json.power === undefined ? 0 : json.power; 
-		this.attack1 = json.attack1 === undefined ? 0 : json.attack1;
-		this.attack2 = json.attack2 === undefined ? 0 : json.attack2;
+		//this.attack1 = json.attack1 === undefined ? new Attack() : new Attack(json.attack1);
+		//this.attack2 = json.attack2 === undefined ? new Attack() : new Attack(json.attack2);
 		this.mouseHit = false;
+	}
+
+	toJSON(){
+		return {
+			owner:this.owner,
+			health:this.health,
+			armor:this.armor,
+			speed:this.speed,
+			power:this.power,
+			attack1:this.attack1.toJSON(),
+			attack2:this.attack2.toJSON()
+		};
 	}
 	
 	draw() {
@@ -19,12 +32,18 @@ class card {
 		
 		push();
 		if(this.mouseHit) {
-			//fill('#00ff00');
+			//fill('#00ff00')
+			if (this.owner == 0 ) {
+				translate(-27.5,-80);
+			}
+			else {
+				translate(-27.5, 0);
+			}
 			scale(2,2);
 		}
-		rect(0, 0, 55, 80, 3);
+		rect(0, 0, 55, 80, 3); // draw card
 		translate(0,0);
-		text(statHealth, 0, 0);
+		text(statHealth, 0, 0); 
 		translate(0,14);
 		text(statArmor,0,0);
 		translate(0,14);
@@ -40,4 +59,6 @@ class card {
 
 
 	}
+
+
 }
